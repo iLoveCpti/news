@@ -6,6 +6,7 @@
 <meta name="description" content="Chinese News : ">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<script src="javascripts/jquery-2.1.0.min.js"></script>
 <title>Chinese News</title>
 <style>
 *{margin:0;padding:0}
@@ -15,14 +16,15 @@ body{overflow:hidden}
 </head>
 <body>
 <iframe title="Chinese News" frameborder="0" src="index.html" id="viewPage"></iframe>
-<script src="javascripts/jquery-2.1.0.min.js"></script>
 <script>
 var iframePage = $('#viewPage');
-var anchorTag = iframePage.contents().find('#main_content_wrap a');
-anchorTag.each(function(i){
-	anchorTag.eq(i).attr('target', '_blank');
+iframePage.load(function(){
+	var anchorTag = iframePage.contents().find('#main_content_wrap a');
+	anchorTag.each(function(i){
+		anchorTag.eq(i).attr('target', '_blank');
+	});
+	iframePage.contents().find('#downloads').hide();
 });
-iframePage.contents().find('#downloads').hide();
 </script>
 </body>
 </html>
