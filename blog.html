@@ -20,11 +20,9 @@ body{overflow:hidden}
 var iframePage = $('#viewPage');
 iframePage.load(function(){
 	iframePage.contents().find('#downloads').hide();
-	iframePage.contents().find('#main_content_wrap a').click(function(e){
-		e.preventDefault();
-		var _this = $(this);
-		var hyperReference = _this.attr('href');
-		window.open(hyperReference, '_blank');
+	var anchorTag = iframePage.contents().find('#main_content_wrap a');
+	anchorTag.each(function(i){
+		anchorTag.eq(i).attr('target', '_blank');
 	});
 });
 </script>
