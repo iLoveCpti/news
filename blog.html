@@ -17,11 +17,15 @@ body{overflow:hidden}
 <iframe title="Chinese News" frameborder="0" src="index.html" id="viewPage"></iframe>
 <script src="javascripts/jquery-2.1.0.min.js"></script>
 <script>
-$('#viewPage').contents().find('#main_content_wrap a').click(function(e){
-	e.preventDefault();
-	var _this = $(this);
-	var hyperReference = _this.attr('href');
-	window.open(hyperReference, '_blank');
+var iframePage = $('#viewPage');
+iframePage.load(function(){
+	iframePage.contents().find('#downloads').hide();
+	iframePage.contents().find('#main_content_wrap a').click(function(e){
+		e.preventDefault();
+		var _this = $(this);
+		var hyperReference = _this.attr('href');
+		window.open(hyperReference, '_blank');
+	});
 });
 </script>
 </body>
