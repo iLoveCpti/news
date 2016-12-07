@@ -10,9 +10,19 @@
 <style>
 *{margin:0;padding:0}
 html,body,iframe{width:100%;height:100%}
+body{overflow:hidden}
 </style>
 </head>
 <body>
 <iframe title="Chinese News" frameborder="0" src="index.html" id="viewPage"></iframe>
+<script src="javascripts/jquery-2.1.0.min.js"></script>
+<script>
+$('#viewPage').contents().find('#main_content_wrap a').click(function(e){
+	e.preventDefault();
+	var _this = $(this);
+	var hyperReference = _this.attr('href');
+	window.open(hyperReference, '_blank');
+});
+</script>
 </body>
 </html>
