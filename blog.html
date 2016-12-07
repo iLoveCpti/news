@@ -18,13 +18,11 @@ body{overflow:hidden}
 <script src="javascripts/jquery-2.1.0.min.js"></script>
 <script>
 var iframePage = $('#viewPage');
-iframePage.load(function(){
-	iframePage.contents().find('#downloads').hide();
-	var anchorTag = iframePage.contents().find('#main_content_wrap a');
-	anchorTag.each(function(i){
-		anchorTag.eq(i).attr('target', '_blank');
-	});
+var anchorTag = iframePage.contents().find('#main_content_wrap a');
+anchorTag.each(function(i){
+	anchorTag.eq(i).attr('target', '_blank');
 });
+iframePage.contents().find('#downloads').hide();
 </script>
 </body>
 </html>
